@@ -1,0 +1,128 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>IEM Stream 1 — Week 0 (31 Aug – 6 Sep 2026)</title>
+<style>
+:root{--navy:#0b2545;--navy2:#13315c;--sky:#8ecae6;--sky2:#d7ecf7;--ink:#10203a;--mut:#5a6b85;
+--line:#dde5ef;--bg:#eef3f9;--card:#fff;--ok:#0a7d5a;--warn:#8a5a00;--bad:#9b1c1c;--focus:#0b6bcb}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg);overflow-wrap:anywhere;word-break:break-word}
+a{color:#0b4a8f}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:8px;top:8px;background:#fff;padding:12px;z-index:9;border-radius:8px}
+
+/* monitor surface, not a hero */
+.monitor{background:var(--navy);color:#fff;border-bottom:3px solid var(--sky)}
+.monitor .in{max-width:900px;margin:0 auto;padding:14px 14px 12px}
+.monitor h1{margin:0;font-size:17px;font-weight:700;letter-spacing:.01em}
+.meta{margin-top:6px;font-size:12.5px;color:var(--sky2);display:flex;flex-wrap:wrap;gap:4px 14px}
+.meta b{color:#fff;font-weight:600}
+.notice{max-width:900px;margin:10px auto 0;padding:0 14px}
+.notice p{margin:0;background:#fff7e6;border:1px solid #f0d9a8;border-left:4px solid #c88a00;
+border-radius:10px;padding:10px 12px;font-size:13.5px;color:#4a3608}
+
+/* week nav — 44px targets */
+nav.wk{position:sticky;top:0;z-index:5;background:var(--navy2);border-bottom:1px solid #0a1f3d}
+nav.wk .in{max-width:900px;margin:0 auto;padding:6px 10px;display:flex;align-items:center;gap:8px}
+nav.wk a,nav.wk span.cur{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;
+padding:0 12px;border-radius:10px;font-size:14px;text-decoration:none;color:#fff;background:rgba(255,255,255,.10)}
+nav.wk a:hover{background:rgba(255,255,255,.22)}
+nav.wk a[aria-disabled="true"]{opacity:.35;pointer-events:none}
+nav.wk .cur{flex:1;background:none;font-weight:600;text-align:center;color:var(--sky2);font-size:13.5px}
+
+main{max-width:900px;margin:0 auto;padding:12px 14px 64px}
+h2{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin:24px 2px 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.day h3,.upwk h3{margin:0 0 8px;font-size:15px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+h3 .d{color:var(--mut);font-weight:500;font-size:13px}
+.day.today{border-color:var(--sky);box-shadow:0 0 0 3px rgba(142,202,230,.45)}
+.badge{background:var(--navy);color:#fff;font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px;letter-spacing:.03em}
+.day.past{opacity:.72}
+
+ul.evs{list-style:none;margin:0;padding:0}
+li.ev{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line)}
+li.ev:first-child{border-top:0}
+.tm{flex:0 0 52px;font-variant-numeric:tabular-nums;color:var(--mut);font-size:13px;padding-top:2px}
+.tm.none{font-size:11.5px;letter-spacing:.04em}
+.bd{flex:1;min-width:0}
+.t{font-weight:600;font-size:15px;line-height:1.35}
+.w{font-size:12.5px;color:var(--mut);margin-top:2px}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);
+background:#f3f7fb;color:var(--navy2);margin:4px 6px 0 0;vertical-align:middle}
+.tag.deadline{background:#fdecec;border-color:#f3c9c9;color:var(--bad)}
+.tag.ok{background:#e8f6f0;border-color:#bfe3d4;color:var(--ok)}
+.tag.warn{background:#fdf3e0;border-color:#f0dcb4;color:var(--warn)}
+.tag.bad{background:#fdecec;border-color:#f3c9c9;color:var(--bad)}
+ul.notes{margin:6px 0 0;padding-left:18px;font-size:13px;color:#2c3c58}
+ul.notes li{margin:2px 0}
+.src{font-size:12px;color:var(--mut);margin-top:5px;font-style:normal}
+.empty{font-size:13.5px;color:var(--mut);background:#f6f9fc;border:1px dashed var(--line);
+border-radius:10px;padding:10px 12px}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.btn{display:flex;flex-direction:column;justify-content:center;min-height:56px;background:var(--card);
+border:1px solid var(--line);border-left:4px solid var(--sky);border-radius:12px;padding:10px 13px;
+text-decoration:none;color:var(--ink)}
+.btn:hover{border-left-color:var(--navy);background:#fbfdff}
+.btn b{font-size:14.5px}
+.btn span{font-size:12px;color:var(--mut);margin-top:2px}
+li.iss{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+li.iss:first-child{border-top:0}
+.st{flex:0 0 auto;align-self:flex-start}
+.tag.raised{background:#fdf3e0;border-color:#f0dcb4;color:var(--warn)}
+.tag.withpt{background:#eaf2fb;border-color:#c9dcf3;color:#14457e}
+.tag.resolved{background:#e8f6f0;border-color:#bfe3d4;color:var(--ok)}
+.tag.declined{background:#fdecec;border-color:#f3c9c9;color:var(--bad)}
+details summary{cursor:pointer;color:var(--navy2);font-size:14px;padding:12px 2px;min-height:44px;display:flex;align-items:center}
+.archive{display:flex;flex-wrap:wrap;gap:8px}
+.archive a{min-height:44px;display:inline-flex;align-items:center;padding:0 12px;border-radius:10px;
+background:#fff;border:1px solid var(--line);text-decoration:none;font-size:13.5px}
+footer{font-size:12.5px;color:var(--mut);margin-top:28px;padding-top:14px;border-top:1px solid var(--line)}
+footer p{margin:6px 0}
+@media (max-width:520px){
+ .monitor h1{font-size:16px}
+ main{padding:10px 10px 56px}
+ .card{padding:11px 12px;border-radius:12px}
+ li.ev{gap:8px}
+ .tm{flex-basis:44px;font-size:12.5px}
+ .t{font-size:14.5px}
+ .links{grid-template-columns:1fr}
+ nav.wk .in{gap:6px}
+ nav.wk .cur{font-size:12px}
+}
+@media print{nav.wk{position:static}}
+</style></head><body>
+<a class="skip" href="#week">Skip to this week</a>
+<div class="monitor"><div class="in">
+<h1>IEM Stream 1 — student agenda</h1>
+<div class="meta">
+<span>Week 0 · <b>Mon 31 Aug – Sun 6 Sep 2026</b></span>
+<span>Page built <b>Fri 18 Sep 2026, 11:29</b> UK</span>
+<span>Newest source <b>18 Sep 2026</b></span>
+<span>Run by the SSC Chair, not the Business School</span>
+</div></div></div>
+<nav class="wk" aria-label="Week navigation"><div class="in"><a href="2026-08-24.html" rel="prev" aria-label="Previous week, 24 August">‹ Prev</a><span class="cur">Week 0 · 31 Aug – 6 Sep 2026</span><a href="2026-09-07.html" rel="next" aria-label="Next week, 7 September">Next ›</a><a href="../index.html" aria-label="Return to the current week">Today</a></div></nav>
+<div class="notice"><p><b>Canvas is not connected to this page.</b> Everything here was entered by hand from programme emails, so items that only ever appeared on Canvas will be missing. Canvas is the source of truth if the two disagree. Every item below shows where it came from and how confident we are in it.</p></div>
+<main>
+<section class="focus"><div class="lab">Next deadline</div><div class="ft">Everest Simulation closes</div><div class="fw">Tuesday 22 September · 10:00 · in 4 days</div><div class="fs">Email, Magali — &quot;Action required today: Everest Simulation – Stream 1&quot;</div></section>
+<h2 id="week">This week, day by day</h2>
+<section class="card day past"><h3>Monday<span class="d">31 August</span></h3><p class="empty">No confirmed items for this day. That is not proof the day is free — this page only shows what has been confirmed in writing, and Canvas is not connected.</p></section><section class="card day past"><h3>Tuesday<span class="d">1 September</span></h3><p class="empty">No confirmed items for this day. That is not proof the day is free — this page only shows what has been confirmed in writing, and Canvas is not connected.</p></section><section class="card day past"><h3>Wednesday<span class="d">2 September</span></h3><p class="empty">No confirmed items for this day. That is not proof the day is free — this page only shows what has been confirmed in writing, and Canvas is not connected.</p></section><section class="card day past"><h3>Thursday<span class="d">3 September</span></h3><p class="empty">No confirmed items for this day. That is not proof the day is free — this page only shows what has been confirmed in writing, and Canvas is not connected.</p></section><section class="card day past"><h3>Friday<span class="d">4 September</span></h3><p class="empty">No confirmed items for this day. That is not proof the day is free — this page only shows what has been confirmed in writing, and Canvas is not connected.</p></section><section class="card day past"><h3>Saturday<span class="d">5 September</span></h3><p class="empty">No confirmed items for this day. That is not proof the day is free — this page only shows what has been confirmed in writing, and Canvas is not connected.</p></section><section class="card day past"><h3>Sunday<span class="d">6 September</span></h3><p class="empty">No confirmed items for this day. That is not proof the day is free — this page only shows what has been confirmed in writing, and Canvas is not connected.</p></section>
+<h2>Coming up</h2>
+<section class="card upwk"><h3>Week 2<span class="d">14 Sep – 20 Sep</span></h3><ul class="evs"><li class="ev"><span class="st"></span><span class="tm">Thu 17</span><div class="bd"><div class="t">Everest Simulation — log-in deadline <a href="https://hbsp.harvard.edu/import/1436827" target="_blank" rel="noopener">open link<span aria-hidden="true"> ↗</span></a></div><div class="w">HBS Everest (hbsp.harvard.edu)</div><span class="tag deadline">Deadline</span><span class="tag ok">Confirmed in writing</span><ul class="notes"><li>You could not be placed into a team until you had logged in.</li><li>Deadline stated in the email was 23:59 on 17 September.</li></ul><div class="src">Source: Email, Magali — &quot;Action required today: Everest Simulation – Stream 1&quot; · dated 17 Sep 2026</div></div></li><li class="ev"><span class="st"></span><span class="tm">Fri 18</span><div class="bd"><div class="t">OBHRM lectures — room change to RSM 131</div><div class="w">Royal School of Mines, Room 131</div><span class="tag ">Session</span><span class="tag ok">Confirmed in writing</span><ul class="notes"><li>The email said &quot;tomorrow&#x27;s OBHRM lectures&quot;, sent 17 Sep — so 18 Sep.</li><li>No lecture time was given in the email; check your timetable.</li><li>Allow time to find the building (South Kensington campus map was attached).</li></ul><div class="src">Source: Email, Magali — &quot;Room change: OBHRM lectures tomorrow&quot; (BUSI70375) · dated 17 Sep 2026</div></div></li><li class="ev"><span class="st"></span><span class="tm">Fri 18</span><div class="bd"><div class="t">New Venture Creation — Week 2 exercises released</div><div class="w">Canvas · BUSI70670</div><span class="tag ">Event</span><span class="tag ok">Confirmed in writing</span><ul class="notes"><li>Two PDFs: week_2_self_reflection_exercise.pdf and Week_2_idea_evaluation_exercise_1.pdf.</li><li>NO deadline was given in the email. An earlier version of this page showed a 24 Sep deadline — that was wrong and has been removed.</li></ul><div class="src">Source: Email — &quot;Exercise for Week 2: BUSI70670 New Venture Creation&quot; · dated 18 Sep 2026</div></div></li><li class="ev"><span class="st"></span><span class="tm">Fri 18</span><div class="bd"><div class="t">Everest Simulation opens <a href="https://hbsp.harvard.edu/import/1436827" target="_blank" rel="noopener">open link<span aria-hidden="true"> ↗</span></a></div><div class="w">HBS Everest</div><span class="tag ">Session</span><span class="tag ok">Confirmed in writing</span><ul class="notes"><li>Simulation period stated as: opens 11:00 Fri 18 Sep, closes 10:00 Tue 22 Sep.</li></ul><div class="src">Source: Email, Magali — &quot;Action required today: Everest Simulation – Stream 1&quot; · dated 17 Sep 2026</div></div></li></ul></section><section class="card upwk"><h3>Week 3<span class="d">21 Sep – 27 Sep</span></h3><ul class="evs"><li class="ev"><span class="st"></span><span class="tm">Tue 22</span><div class="bd"><div class="t">Everest Simulation closes</div><div class="w">HBS Everest</div><span class="tag deadline">Deadline</span><span class="tag ok">Confirmed in writing</span><ul class="notes"><li>Closing time 10:00 on Tuesday 22 September is stated in the email.</li><li>The SSC intends to ask the programme team about the close time clashing with other Tuesday-morning commitments. That request has NOT yet been confirmed as sent or accepted — treat 10:00 as the real deadline.</li></ul><div class="src">Source: Email, Magali — &quot;Action required today: Everest Simulation – Stream 1&quot; · dated 17 Sep 2026</div></div></li><li class="ev"><span class="st"></span><span class="tm">Tue 22</span><div class="bd"><div class="t">SSC Pulse #1 closes (6 questions, ~90 seconds) <a href="https://tally.so/r/1AjE7L" target="_blank" rel="noopener">open link<span aria-hidden="true"> ↗</span></a></div><div class="w">Tally</div><span class="tag ">SSC</span><span class="tag ok">Confirmed in writing</span><ul class="notes"><li>Run by the SSC Chair, not the Business School.</li></ul><div class="src">Source: SSC Chair (this page&#x27;s own survey) · dated 18 Sep 2026</div></div></li><li class="ev"><span class="st"></span><span class="tm">Thu 24</span><div class="bd"><div class="t">EdTech Together (IEM ecosystem event, with DOHE) <a href="https://www.eventbrite.co.uk/e/edtech-together-london-september-2026-tickets-1997977704097" target="_blank" rel="noopener">open link<span aria-hidden="true"> ↗</span></a></div><div class="w">London — see Eventbrite listing</div><span class="tag ">Event</span><span class="tag ok">Confirmed in writing</span><ul class="notes"><li>Open to anyone interested, not just EdTech founders.</li><li>Registration is via Eventbrite. A free-entry code was circulated by email to IEM students — check the 15 Sep email; it is deliberately not reproduced on this public page.</li><li>No start time was given in the email; see the Eventbrite listing.</li></ul><div class="src">Source: Email, Nadja — &quot;EdTech Together - 24 September&quot; · dated 15 Sep 2026</div></div></li></ul></section><section class="card upwk"><h3>Week 4<span class="d">28 Sep – 4 Oct</span></h3><ul class="evs"><li class="ev"><span class="st"></span><span class="tm">Mon 28</span><div class="bd"><div class="t">Maths Primer — TA support ends</div><div class="w">Canvas · Maths Primer (IEM)</div><span class="tag deadline">Deadline</span><span class="tag ok">Confirmed in writing</span><ul class="notes"><li>This email covers the MATHS primer only. Get questions in before this date.</li><li>An earlier version of this page claimed TA support ended for Maths, Finance and Data Analysis together. Only Maths is evidenced.</li></ul><div class="src">Source: Email, Yicheng — &quot;A Quick Reminder: TA Support Ends on 28 September: Maths Primer (IEM)&quot; · dated 14 Sep 2026</div></div></li><li class="ev"><span class="st"></span><span class="tm">Mon 28</span><div class="bd"><div class="t">Data Tools &amp; Evidence Primer — module ends</div><div class="w">Canvas · Data Analysis Primer (IEM)</div><span class="tag deadline">Deadline</span><span class="tag ok">Confirmed in writing</span><ul class="notes"><li>Module materials stay accessible for the rest of the year.</li><li>Grades are published after the module ends on 28 September.</li></ul><div class="src">Source: Email, Sevinj Teymurova — &quot;Data Analysis Primer module update&quot; · dated 14 Sep 2026</div></div></li><li class="ev"><span class="st"></span><span class="tm">Wed 30</span><div class="bd"><div class="t">Maths Primer — quiz 6.2 due (20 pts)</div><div class="w">Canvas · Maths Primer</div><span class="tag deadline">Deadline</span><span class="tag warn">Needs a Canvas recheck</span><ul class="notes"><li>Last verified July 2026 and NOT re-checked since. Canvas is the source of truth — confirm the date there before relying on it.</li></ul><div class="src">Source: Canvas, read July 2026 · dated 1 Jul 2026</div></div></li><li class="ev"><span class="st"></span><span class="tm">Wed 30</span><div class="bd"><div class="t">Finance Primer — quiz 6.1 due</div><div class="w">Canvas · Finance Primer</div><span class="tag deadline">Deadline</span><span class="tag warn">Needs a Canvas recheck</span><ul class="notes"><li>Last verified July 2026 and NOT re-checked since. Confirm on Canvas.</li></ul><div class="src">Source: Canvas, read July 2026 · dated 1 Jul 2026</div></div></li><li class="ev"><span class="st"></span><span class="tm">Wed 30</span><div class="bd"><div class="t">Data Analysis Primer — quiz 5.1 due</div><div class="w">Canvas · Data Analysis Primer</div><span class="tag deadline">Deadline</span><span class="tag warn">Needs a Canvas recheck</span><ul class="notes"><li>Last verified July 2026 and NOT re-checked since. Confirm on Canvas.</li><li>Note the module itself ends 28 September.</li></ul><div class="src">Source: Canvas, read July 2026 · dated 1 Jul 2026</div></div></li></ul></section><section class="card upwk"><h3>Week 5<span class="d">5 Oct – 11 Oct</span></h3><ul class="evs"><li class="ev"><span class="st"></span><span class="tm">Wed 7</span><div class="bd"><div class="t">Planet Ideathon — Future of Travel in an age of Climate Change</div><div class="w">Imperial Sustainability Hub</div><span class="tag ">Event</span><span class="tag ok">Confirmed in writing</span><ul class="notes"><li>Wednesday 7 October, 12:00–17:00. Lunch provided for workshop participants.</li><li>Places are limited; register early via the Imperial events listing.</li></ul><div class="src">Source: Email — &quot;Invitation to Ideathon: Addressing the Future of Travel…&quot; · dated 16 Sep 2026</div></div></li></ul></section><section class="card upwk"><h3>Later<span class="d">further ahead</span></h3><ul class="evs"><li class="ev"><span class="st"></span><span class="tm">Mon 19</span><div class="bd"><div class="t">Managerial Economics — group report / video due</div><div class="w">Canvas · BUSI70373</div><span class="tag deadline">Deadline</span><span class="tag ok">Confirmed in writing</span><ul class="notes"><li>Instructions are on the usual Canvas page.</li><li>Deadline stated as 19 October 2026 at 11.59pm.</li><li>Self-directed: the module team will not help with case study choice or analysis, admin questions only.</li></ul><div class="src">Source: Email, Ragvir — &quot;Group assessment - Released: BUSI70373 Managerial Economics&quot; · dated 15 Sep 2026</div></div></li><li class="ev"><span class="st"></span><span class="tm">Mon 30</span><div class="bd"><div class="t">Plagiarism Awareness quiz due</div><div class="w">Canvas</div><span class="tag deadline">Deadline</span><span class="tag warn">Needs a Canvas recheck</span><ul class="notes"><li>Last verified July 2026. Confirm the exact date and time on Canvas.</li></ul><div class="src">Source: Canvas, read July 2026 · dated 1 Jul 2026</div></div></li></ul></section>
+<h2>Raise something / get help</h2>
+<div class="links"><a class="btn" href="https://tally.so/r/GxM0LO" target="_blank" rel="noopener"><b>Raise it (anonymous)</b><span>Reddit / SSC / Chair-only / staff complaint</span></a><a class="btn" href="https://tally.so/r/1AjE7L" target="_blank" rel="noopener"><b>Pulse — 90 seconds</b><span>what&#x27;s hurting this week</span></a><a class="btn" href="https://www.reddit.com/r/IEMStream1/comments/1wjm2qr/" target="_blank" rel="noopener"><b>This week&#x27;s problems</b><span>upvote = me too</span></a><a class="btn" href="https://www.reddit.com/r/IEMStream1/comments/1wjlz4o/" target="_blank" rel="noopener"><b>Canvas &amp; platforms thread</b><span>every broken thing, one place</span></a><a class="btn" href="https://www.reddit.com/r/IEMStream1/" target="_blank" rel="noopener"><b>Team short / stuck</b><span>pinned thread on the sub</span></a><a class="btn" href="https://www.reddit.com/r/IEMStream1/wiki/tracker" target="_blank" rel="noopener"><b>Full tracker</b><span>every issue, status, owner</span></a></div>
+<h2>Open issues the SSC is carrying (5)</h2>
+<section class="card"><ul class="evs"><li class="iss"><div class="bd"><div class="t">#1 Everest Simulation closes Tue 22 Sep 10:00 — same morning as the Careers Fair; non-completion = 0</div><span class="tag raised">Raised</span><div class="w">Workload · Chair · updated 2026-09-17</div><ul class="notes"><li>Next: ask PT for a Canvas post of who hasn&#x27;t logged in + move close to 12:00</li></ul></div></li><li class="iss"><div class="bd"><div class="t">#2 Team M split; a student → Team O, a student → Team Q, a student → Team R, a student → Team S — other teams may still be short</div><span class="tag withpt">With programme team</span><div class="w">My team is short · Programme team · updated 2026-09-17</div><ul class="notes"><li>Next: collect under-strength list via intake post + pulse Q4</li></ul></div></li><li class="iss"><div class="bd"><div class="t">#3 OBHRM quiz/memo rules only clarified after two &#x27;Important Clarification&#x27; emails 20 min apart</div><span class="tag raised">Raised</span><div class="w">Academic · Academic (Sayed) · updated 2026-09-17</div><ul class="notes"><li>Next: ask: assessment rules in one place, before the assessment</li></ul></div></li><li class="iss"><div class="bd"><div class="t">#4 Miro invites don&#x27;t arrive by email; boards should be shared &#x27;anyone with link&#x27; on Canvas</div><span class="tag raised">Raised</span><div class="w">Admin &amp; comms · Chair · updated 2026-09-17</div></div></li><li class="iss"><div class="bd"><div class="t">#5 Late starters have ~2 weeks for primers vs 6 for everyone else; TA support ends 28 Sep</div><span class="tag raised">Raised</span><div class="w">Academic · Academic (Sayed) · updated 2026-09-17</div><ul class="notes"><li>Next: pulse: how many late starters?</li></ul></div></li></ul></section>
+
+<h2>Week archive</h2>
+<section class="card"><div class="archive"><a href="2026-08-24.html">W-1 · 24 Aug</a><a href="2026-08-31.html" aria-current="page">W0 · 31 Aug</a><a href="2026-09-07.html">W1 · 7 Sep</a><a href="../index.html">W2 · 14 Sep</a><a href="2026-09-21.html">W3 · 21 Sep</a><a href="2026-09-28.html">W4 · 28 Sep</a><a href="2026-10-05.html">W5 · 5 Oct</a><a href="2026-10-12.html">W6 · 12 Oct</a><a href="2026-10-19.html">W7 · 19 Oct</a><a href="2026-10-26.html">W8 · 26 Oct</a><a href="2026-11-02.html">W9 · 2 Nov</a><a href="2026-11-09.html">W10 · 9 Nov</a></div></section>
+<footer>
+<p>Something missing or wrong? Reply in <a href="https://www.reddit.com/r/IEMStream1/comments/1wjm2qr/" target="_blank" rel="noopener">this week's problems thread</a>, or use the anonymous form above.</p>
+<p>Confidence labels: <b>Confirmed in writing</b> = taken from a programme email or Canvas announcement.
+<b>Needs a Canvas recheck</b> = last verified earlier in the year and not re-confirmed since.
+<b>Source contradicts itself</b> = the email we have gives an impossible date, so it must be clarified before you rely on it.</p>
+<p>Personal names from internal correspondence are removed before anything is published here.</p>
+</footer>
+</main></body></html>
