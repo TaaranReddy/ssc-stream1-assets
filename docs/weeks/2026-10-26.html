@@ -3,7 +3,7 @@
 <meta name="robots" content="noindex,nofollow">
 <title>IEM Stream 1 — Week 8 (26 Oct – 1 Nov 2026)</title>
 <style>
-:root{--navy:#0b2545;--navy2:#13315c;--sky:#8ecae6;--sky2:#d7ecf7;--ink:#10203a;--mut:#5a6b85;
+:root{--gut:14px;--navy:#0b2545;--navy2:#13315c;--sky:#8ecae6;--sky2:#d7ecf7;--ink:#10203a;--mut:#5a6b85;
 --line:#dde5ef;--bg:#eef3f9;--card:#fff;--ok:#0a7d5a;--warn:#8a5a00;--bad:#9b1c1c;--focus:#0b6bcb}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -16,30 +16,32 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 
 /* monitor surface, not a hero */
 .monitor{background:var(--navy);color:#fff;border-bottom:3px solid var(--sky)}
-.monitor .in{max-width:900px;margin:0 auto;padding:14px 14px 12px}
+.monitor .in{max-width:900px;margin:0 auto;padding:14px var(--gut) 12px}
+.card,.focus,.links{margin-left:0;margin-right:0}
 .monitor h1{margin:0;font-size:17px;font-weight:700;letter-spacing:.01em}
 .meta{margin-top:6px;font-size:12.5px;color:var(--sky2);display:flex;flex-wrap:wrap;gap:4px 14px}
 .meta b{color:#fff;font-weight:600}
-.notice{max-width:900px;margin:10px auto 0;padding:0 14px}
-.notice p{margin:0;background:#fff7e6;border:1px solid #f0d9a8;border-left:4px solid #c88a00;
-border-radius:10px;padding:10px 12px;font-size:13.5px;color:#4a3608}
 
 /* week nav — 44px targets */
-nav.wk{position:sticky;top:0;z-index:5;background:var(--navy2);border-bottom:1px solid #0a1f3d}
-nav.wk .in{max-width:900px;margin:0 auto;padding:6px 10px;display:flex;align-items:center;gap:8px}
-nav.wk a,nav.wk span.cur{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;
+nav.wk{position:sticky;top:0;z-index:5;background:var(--navy2);border-bottom:1px solid #1d4374}
+nav.wk .in{max-width:900px;margin:0 auto;display:flex;gap:8px;align-items:center;padding:8px var(--gut)}
+nav.wk a,nav.wk span.cur{min-height:48px;min-width:48px;display:inline-flex;align-items:center;justify-content:center;
 padding:0 12px;border-radius:10px;font-size:14px;text-decoration:none;color:#fff;background:rgba(255,255,255,.10)}
 nav.wk a:hover{background:rgba(255,255,255,.22)}
 nav.wk a[aria-disabled="true"]{opacity:.35;pointer-events:none}
 nav.wk .cur{flex:1;background:none;font-weight:600;text-align:center;color:var(--sky2);font-size:13.5px}
 
-main{max-width:900px;margin:0 auto;padding:12px 14px 64px}
+main{max-width:900px;margin:0 auto;padding:12px var(--gut) 64px}
+.fcta{display:inline-block;margin-top:9px;min-height:44px;line-height:44px;padding:0 16px;
+border-radius:10px;background:var(--sky);color:#08203c;font-weight:600;font-size:14px}
+a.focus{display:block;text-decoration:none}
+a.focus:hover .fcta{background:#a8d8ef}
 .focus{background:linear-gradient(180deg,#123561,#0b2545);color:#fff;border-radius:14px;
-padding:14px 16px;margin:14px 0 4px;border:1px solid #0a1f3d}
+padding:14px 16px;margin:22px 0 4px;border:1px solid #0a1f3d}
 .focus .lab{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--sky)}
-.focus .ft{font-size:19px;font-weight:700;line-height:1.3;margin-top:4px}
+.focus .ft{font-size:18.5px;font-weight:700;line-height:1.32;margin-top:4px}
 .focus .fw{font-size:14px;color:#dbeaf6;margin-top:5px}
-.focus .fs{font-size:12px;color:#9fbcd6;margin-top:7px}
+.focus .fs{font-size:12.5px;color:#c2d5ea;margin-top:7px}
 .focus.none .ft{font-size:16px;font-weight:600}
 h2{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin:24px 2px 8px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
@@ -66,8 +68,14 @@ background:#f3f7fb;color:var(--navy2);margin:4px 6px 0 0;vertical-align:middle}
 ul.notes{margin:6px 0 0;padding-left:18px;font-size:13px;color:#2c3c58}
 ul.notes li{margin:2px 0}
 .src{font-size:12px;color:var(--mut);margin-top:5px;font-style:normal}
-.empty{font-size:13.5px;color:var(--mut);background:#f6f9fc;border:1px dashed var(--line);
+.empty{font-size:13.5px;color:#41536e;background:#f6f9fc;border:1px dashed #c9d5e4;
 border-radius:10px;padding:10px 12px}
+.notice{max-width:900px;margin:18px auto 0;padding:0 var(--gut)}
+.notice>summary{cursor:pointer;list-style:disclosure-closed}
+.notice[open]>summary{list-style:disclosure-open}
+.notice>summary{background:#fff7e6;border:1px solid #f0d9a8;border-left:4px solid #c88a00;
+border-radius:10px;padding:0 12px;font-size:13.5px;color:#4a3608;min-height:44px}
+.notice>p{margin:8px 0 0;font-size:13.5px;color:#41536e;padding:0 4px}
 .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
 .btn{display:flex;flex-direction:column;justify-content:center;min-height:56px;background:var(--card);
 border:1px solid var(--line);border-left:4px solid var(--sky);border-radius:12px;padding:10px 13px;
@@ -104,17 +112,18 @@ footer p{margin:6px 0}
 @media print{nav.wk{position:static}}
 </style></head><body>
 <a class="skip" href="#week">Skip to this week</a>
+<a class="skip" href="#today">Jump to today</a>
 <div class="monitor"><div class="in">
 <h1>IEM Stream 1 — student agenda</h1>
 <div class="meta">
 <span>Run by the SSC Chair, not the Business School</span>
-<span>Page built Fri 18 Sep 2026, 11:37 UK · newest source 18 Sep 2026</span>
+<span>Page built Fri&nbsp;18&nbsp;Sep&nbsp;2026,&nbsp;11:40&nbsp;UK · newest source 18&nbsp;Sep&nbsp;2026</span>
 </div></div></div>
 <nav class="wk" aria-label="Week navigation"><div class="in"><a href="2026-10-19.html" rel="prev" aria-label="Previous week, 19 October">‹ Prev</a><span class="cur">Week 8 · 26–1 Nov 2026</span><a href="2026-11-02.html" rel="next" aria-label="Next week, 2 November">Next ›</a><a href="../index.html" aria-label="Return to the current week">Today</a></div></nav>
 <main>
-<a class="focus" href="https://canvas.imperial.ac.uk/courses/8963/assignments/197589" target="_blank" rel="noopener"><div class="lab">Next deadline</div><div class="ft">OBHRM (BUSI70375) — Participation Memo for lecture 4</div><div class="fw">Sat 19 Sep · 15:00 · tomorrow</div><div class="fcta">Open on Canvas ↗</div><div class="fs">Canvas assignment page (authenticated read)</div></a>
+<a class="focus" href="https://canvas.imperial.ac.uk/courses/8963/assignments/197589" target="_blank" rel="noopener"><div class="lab">Next deadline</div><div class="ft">OBHRM (BUSI70375) — Participation Memo for lecture 4</div><div class="fw">Sat 19 Sep · 15:00 · the day after this page was built</div><div class="fcta">Open on Canvas ↗</div><div class="fs">Canvas assignment page (authenticated read)</div></a>
 <details class="notice"><summary>Where this comes from, and what it misses</summary>
-<p><b>48 assessment deadlines were read directly from Canvas</b> on 18 Sep 2026, 11:37 UK, covering every date set for "Everyone" or "IEM Stream 1". That snapshot is fixed, not live: if a tutor moves a deadline after that time, this page will not know until it is refreshed. Timetabled lectures, seminars and room changes are <b>not</b> in Canvas assignments, so they only appear here when a programme email has announced them. Canvas remains the source of truth. Every item below shows its source and how confident we are in it.</p></details>
+<p><b>48 assessment deadlines were read directly from Canvas</b> on 18 Sep 2026, 11:40 UK, covering every date set for "Everyone" or "IEM Stream 1". That snapshot is fixed, not live: if a tutor moves a deadline after that time, this page will not know until it is refreshed. Timetabled lectures, seminars and room changes are <b>not</b> in Canvas assignments, so they only appear here when a programme email has announced them. Canvas remains the source of truth. Every item below shows its source and how confident we are in it.</p></details>
 <h2 id="week">This week, day by day</h2>
 <section class="card day"><h3>Monday<span class="d">26 October</span></h3><p class="empty">No assessment deadline or announced session for this day. Timetabled teaching is not in the Canvas assignment data, so check your own timetable — an empty day here is not proof the day is free.</p></section><section class="card day"><h3>Tuesday<span class="d">27 October</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section><section class="card day"><h3>Wednesday<span class="d">28 October</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section><section class="card day"><h3>Thursday<span class="d">29 October</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section><section class="card day"><h3>Friday<span class="d">30 October</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section><section class="card day"><h3>Saturday<span class="d">31 October</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section><section class="card day"><h3>Sunday<span class="d">1 November</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section>
 <h2>Coming up</h2>
