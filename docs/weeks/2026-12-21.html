@@ -1,0 +1,145 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>IEM Stream 1 — Week 16 (21 Dec – 27 Dec 2026)</title>
+<style>
+:root{--gut:14px;--navy:#0b2545;--navy2:#13315c;--sky:#8ecae6;--sky2:#d7ecf7;--ink:#10203a;--mut:#5a6b85;
+--line:#dde5ef;--bg:#eef3f9;--card:#fff;--ok:#0a7d5a;--warn:#8a5a00;--bad:#9b1c1c;--focus:#0b6bcb}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg);overflow-wrap:anywhere;word-break:break-word}
+a{color:#0b4a8f}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:8px;top:8px;background:#fff;padding:12px;z-index:9;border-radius:8px}
+
+/* monitor surface, not a hero */
+.monitor{background:var(--navy);color:#fff;border-bottom:3px solid var(--sky)}
+.monitor .in{max-width:900px;margin:0 auto;padding:14px var(--gut) 12px}
+.card,.focus,.links{margin-left:0;margin-right:0}
+.monitor h1{margin:0;font-size:17px;font-weight:700;letter-spacing:.01em}
+.meta{margin-top:6px;font-size:12.5px;color:var(--sky2);display:flex;flex-wrap:wrap;gap:4px 14px}
+.meta b{color:#fff;font-weight:600}
+
+/* week nav — 44px targets */
+nav.wk{position:sticky;top:0;z-index:5;background:var(--navy2);border-bottom:1px solid #1d4374}
+nav.wk .in{max-width:900px;margin:0 auto;display:flex;gap:8px;align-items:center;padding:8px var(--gut)}
+nav.wk a,nav.wk span.cur{min-height:48px;min-width:48px;display:inline-flex;align-items:center;justify-content:center;
+padding:0 12px;border-radius:10px;font-size:14px;text-decoration:none;color:#fff;background:rgba(255,255,255,.10)}
+nav.wk a:hover{background:rgba(255,255,255,.22)}
+nav.wk a[aria-disabled="true"]{opacity:.35;pointer-events:none}
+nav.wk .cur{flex:1;background:none;font-weight:600;text-align:center;color:var(--sky2);font-size:13.5px}
+
+main{max-width:900px;margin:0 auto;padding:12px var(--gut) 64px}
+.fcta{display:inline-block;margin-top:9px;min-height:44px;line-height:44px;padding:0 16px;
+border-radius:10px;background:var(--sky);color:#08203c;font-weight:600;font-size:14px}
+a.focus{display:block;text-decoration:none}
+a.focus:hover .fcta{background:#a8d8ef}
+.focus{background:linear-gradient(180deg,#123561,#0b2545);color:#fff;border-radius:14px;
+padding:14px 16px;margin:22px 0 4px;border:1px solid #0a1f3d}
+.focus .lab{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--sky)}
+.focus .ft{font-size:18.5px;font-weight:700;line-height:1.32;margin-top:4px}
+.focus .fw{font-size:14px;color:#dbeaf6;margin-top:5px}
+.focus .fs{font-size:12.5px;color:#c2d5ea;margin-top:7px}
+.focus.none .ft{font-size:16px;font-weight:600}
+h2{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin:24px 2px 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.day h3,.upwk h3{margin:0 0 8px;font-size:15px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+h3 .d{color:var(--mut);font-weight:500;font-size:13px}
+.day.today{border-color:var(--sky);box-shadow:0 0 0 3px rgba(142,202,230,.45)}
+.badge{background:var(--navy);color:#fff;font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px;letter-spacing:.03em}
+.day.past{opacity:.72}
+
+ul.evs{list-style:none;margin:0;padding:0}
+li.ev{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line)}
+li.ev:first-child{border-top:0}
+.tm{flex:0 0 52px;font-variant-numeric:tabular-nums;color:var(--mut);font-size:13px;padding-top:2px}
+.tm.none{font-size:11.5px;letter-spacing:.04em}
+.bd{flex:1;min-width:0}
+.t{font-weight:600;font-size:15px;line-height:1.35}
+.w{font-size:12.5px;color:var(--mut);margin-top:2px}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);
+background:#f3f7fb;color:var(--navy2);margin:4px 6px 0 0;vertical-align:middle}
+.tag.deadline{background:#fdecec;border-color:#f3c9c9;color:var(--bad)}
+.tag.ok{background:#e8f6f0;border-color:#bfe3d4;color:var(--ok)}
+.tag.warn{background:#fdf3e0;border-color:#f0dcb4;color:var(--warn)}
+.tag.bad{background:#fdecec;border-color:#f3c9c9;color:var(--bad)}
+ul.notes{margin:6px 0 0;padding-left:18px;font-size:13px;color:#2c3c58}
+ul.notes li{margin:2px 0}
+.src{font-size:12px;color:var(--mut);margin-top:5px;font-style:normal}
+.empty{font-size:13.5px;color:#41536e;background:#f6f9fc;border:1px dashed #c9d5e4;
+border-radius:10px;padding:10px 12px}
+.notice{max-width:900px;margin:18px auto 0;padding:0 var(--gut)}
+.notice>summary{cursor:pointer;list-style:disclosure-closed}
+.notice[open]>summary{list-style:disclosure-open}
+.notice>summary{background:#fff7e6;border:1px solid #f0d9a8;border-left:4px solid #c88a00;
+border-radius:10px;padding:0 12px;font-size:13.5px;color:#4a3608;min-height:44px}
+.notice>p{margin:8px 0 0;font-size:13.5px;color:#41536e;padding:0 4px}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.btn{display:flex;flex-direction:column;justify-content:center;min-height:56px;background:var(--card);
+border:1px solid var(--line);border-left:4px solid var(--sky);border-radius:12px;padding:10px 13px;
+text-decoration:none;color:var(--ink)}
+.btn:hover{border-left-color:var(--navy);background:#fbfdff}
+.btn b{font-size:14.5px}
+.btn span{font-size:12px;color:var(--mut);margin-top:2px}
+li.iss{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+li.iss:first-child{border-top:0}
+.st{flex:0 0 auto;align-self:flex-start}
+.tag.raised{background:#fdf3e0;border-color:#f0dcb4;color:var(--warn)}
+.tag.withpt{background:#eaf2fb;border-color:#c9dcf3;color:#14457e}
+.tag.resolved{background:#e8f6f0;border-color:#bfe3d4;color:var(--ok)}
+.tag.declined{background:#fdecec;border-color:#f3c9c9;color:var(--bad)}
+details summary{cursor:pointer;color:var(--navy2);font-size:14px;padding:12px 2px;min-height:44px;display:flex;align-items:center}
+.archive{display:flex;flex-wrap:wrap;gap:8px}
+.archive a{min-height:44px;display:inline-flex;align-items:center;padding:0 12px;border-radius:10px;
+background:#fff;border:1px solid var(--line);text-decoration:none;font-size:13.5px;color:var(--navy2)}
+.archive a[aria-current="page"]{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:600}
+.tm.day{flex-basis:62px;line-height:1.25}
+footer{font-size:12.5px;color:var(--mut);margin-top:28px;padding-top:14px;border-top:1px solid var(--line)}
+footer p{margin:6px 0}
+@media (max-width:520px){
+ .monitor h1{font-size:16px}
+ main{padding:10px 10px 56px}
+ .card{padding:11px 12px;border-radius:12px}
+ li.ev{gap:8px}
+ .tm{flex-basis:44px;font-size:12.5px}
+ .t{font-size:14.5px}
+ .links{grid-template-columns:1fr}
+ nav.wk .in{gap:6px}
+ nav.wk .cur{font-size:12px}
+}
+@media print{nav.wk{position:static}}
+</style></head><body>
+<a class="skip" href="#week">Skip to this week</a>
+
+<div class="monitor"><div class="in">
+<h1>IEM Stream 1 — student agenda</h1>
+<div class="meta">
+<span>Run by the SSC Chair, not the Business School</span>
+<span>Page built Mon&nbsp;26&nbsp;Oct&nbsp;2026,&nbsp;00:00&nbsp;UK · newest source 26&nbsp;Oct&nbsp;2026</span>
+</div></div></div>
+<nav class="wk" aria-label="Week navigation"><div class="in"><a href="2026-12-14.html" rel="prev" aria-label="Previous week, 14 December">‹ Prev</a><span class="cur">Week 16 · 21–27 Dec 2026</span><a aria-disabled="true" href="#">Next ›</a><a href="../index.html" aria-label="Return to the current week">Today</a></div></nav>
+<main>
+<a class="focus" href="https://canvas.imperial.ac.uk/courses/9219/assignments/105747" target="_blank" rel="noopener"><div class="lab">Next deadline</div><div class="ft">New Venture Creation (BUSI70670) — Group report (60%)</div><div class="fw">Fri 13 Nov · 12:00 · 18 days after this page was built</div><div class="fcta">Open on Canvas ↗</div><div class="fs">Canvas assignment page (authenticated read)</div></a>
+<details class="notice"><summary>Where this comes from, and what it misses</summary>
+<p><b>48 assessment deadlines were read directly from Canvas</b> on 26 Oct 2026, 00:00 UK, covering every date set for "Everyone" or "IEM Stream 1". That snapshot is fixed, not live: if a tutor moves a deadline after that time, this page will not know until it is refreshed. Timetabled lectures, seminars and room changes are <b>not</b> in Canvas assignments, so they only appear here when a programme email has announced them. Canvas remains the source of truth. Every item below shows its source and how confident we are in it.</p></details>
+<h2 id="week">This week, day by day</h2>
+<section class="card day"><h3>Monday<span class="d">21 December</span></h3><p class="empty">No assessment deadline or announced session for this day. Timetabled teaching is not in the Canvas assignment data, so check your own timetable — an empty day here is not proof the day is free.</p></section><section class="card day"><h3>Tuesday<span class="d">22 December</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section><section class="card day"><h3>Wednesday<span class="d">23 December</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section><section class="card day"><h3>Thursday<span class="d">24 December</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section><section class="card day"><h3>Friday<span class="d">25 December</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section><section class="card day"><h3>Saturday<span class="d">26 December</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section><section class="card day"><h3>Sunday<span class="d">27 December</span></h3><p class="empty">Nothing recorded — check your timetable.</p></section>
+<h2>Coming up</h2>
+<section class="card"><p class="empty">Nothing further is confirmed yet. Deadlines usually appear on Canvas before they reach this page.</p></section>
+<h2>Raise something / get help</h2>
+<div class="links"><a class="btn" href="https://tally.so/r/GxM0LO" target="_blank" rel="noopener"><b>Raise it (anonymous)</b><span>Reddit / SSC / Chair-only / staff complaint</span></a><a class="btn" href="https://tally.so/r/1AjE7L" target="_blank" rel="noopener"><b>Pulse — quick survey</b><span>what&#x27;s hurting this week</span></a><a class="btn" href="https://www.reddit.com/r/IEMStream1/comments/1wjm2qr/" target="_blank" rel="noopener"><b>This week&#x27;s problems</b><span>upvote = me too</span></a><a class="btn" href="https://www.reddit.com/r/IEMStream1/comments/1wjlz4o/" target="_blank" rel="noopener"><b>Canvas &amp; platforms thread</b><span>every broken thing, one place</span></a><a class="btn" href="https://www.reddit.com/r/IEMStream1/" target="_blank" rel="noopener"><b>Team short / stuck</b><span>pinned thread on the sub</span></a><a class="btn" href="https://www.reddit.com/r/IEMStream1/wiki/tracker" target="_blank" rel="noopener"><b>Full tracker</b><span>every issue, status, owner</span></a></div>
+<h2>Open issues the SSC is carrying (7)</h2>
+<section class="card"><ul class="evs"><li class="iss"><div class="bd"><div class="t">#1 Everest Simulation closes Tue 22 Sep 10:00 — same morning as the Careers Fair; non-completion = 0</div><span class="tag raised">Raised</span><div class="w">Workload · Chair · updated 2026-10-03</div><ul class="notes"><li>Next: Pulse 3 Oct (4 responses): 3 of 4 say deadlines land too close together; 1 of 4 was surprised by a deadline this week; 3 of 4 want a single Monday deadline message. Everest itself is past. ASK at SSC 1: clash check before deadlines are set + Monday deadline digest (I&#x27;ll run the digest from the live page).</li></ul></div></li><li class="iss"><div class="bd"><div class="t">#2 Team M dissolved 16 Sep; its four members reallocated across Teams O, Q, R and S — receiving and other teams may still be under strength</div><span class="tag raised">Raised</span><div class="w">My team is short · Chair · updated 2026-10-03</div><ul class="notes"><li>Next: Pulse 3 Oct (4 responses): 2 of 4 &#x27;not sure&#x27; if their syndicate is at full strength, 2 of 4 &#x27;yes&#x27;. Still no written ask to the programme team. ASK: the PT confirms team sizes after the Team M reallocation.</li></ul></div></li><li class="iss"><div class="bd"><div class="t">#3 OBHRM participation-memo rules and quiz reading/referencing rules were only clarified by two &#x27;Important Clarification&#x27; announcements on 14 Sep, after the assessments had started</div><span class="tag raised">Raised</span><div class="w">Academic · Academic (Sayed) · updated 2026-10-03</div><ul class="notes"><li>Next: Pulse 3 Oct (4 responses): 3 of 4 say assessment rules only became clear after &#x27;Important Clarification&#x27; emails, the most-cited problem after deadline clustering. Take to SSC 1 with Academic (Sayed).</li></ul></div></li><li class="iss"><div class="bd"><div class="t">#4 Miro board access: staff advise sharing &#x27;anyone with the link&#x27; because email invitations &#x27;don&#x27;t always come through&#x27; (Design Thinking announcement, 14 Sep)</div><span class="tag raised">Raised</span><div class="w">Admin &amp; comms · Chair · updated 2026-10-03</div><ul class="notes"><li>Next: Pulse 3 Oct (4 responses): 1 of 4 affected by tools/links shared late. Low priority; fold into the &#x27;admin &amp; comms&#x27; item at SSC 1.</li></ul></div></li><li class="iss"><div class="bd"><div class="t">#5 Primer modules end 28 Sep and TA support ends 28 Sep (14 Sep announcements); three primer quizzes due Wed 30 Sep 16:00 (Canvas). Impact on late starters not yet quantified.</div><span class="tag raised">Raised</span><div class="w">Academic · Academic (Sayed) · updated 2026-10-03</div><ul class="notes"><li>Next: Pulse 3 Oct (4 responses): 1 of 4 affected (late starters). Primers closed 30 Sep, so close as lessons-learned for next cohort at SSC 1.</li></ul></div></li><li class="iss"><div class="bd"><div class="t">#6 No live view of your own attendance — students only find out near the end of term how many sessions they&#x27;ve missed against the attendance requirement (Gunjal cites 85%; Canvas/My Imperial Campus guidance to be confirmed)</div><span class="tag raised">Raised</span><div class="w">Academic · Chair · updated 2026-09-23</div><ul class="notes"><li>Next: Raised by Gunjal Kothari (22 Sep). ASK: a self-service view in My Imperial Campus / Canvas showing % attended, sessions left you can miss, and how to make up — updated during term. PRIORITY: put forward at first SSC; credit Gunjal.</li></ul></div></li><li class="iss"><div class="bd"><div class="t">#7 Recordings don&#x27;t always show what the professor is showing (slides/whiteboard/Miro lost when only room audio is captured)</div><span class="tag raised">Raised</span><div class="w">Academic · Academic (Sayed) + Chair · updated 2026-10-03</div><ul class="notes"><li>Next: From Ideas &amp; Problems list (23 Sep). Raise at SSC 1.</li></ul></div></li></ul></section>
+
+<h2>Week archive</h2>
+<section class="card"><div class="archive"><a href="2026-10-05.html">W5 · 5 Oct</a><a href="2026-10-12.html">W6 · 12 Oct</a><a href="2026-10-19.html">W7 · 19 Oct</a><a href="../index.html">W8 · 26 Oct</a><a href="2026-11-02.html">W9 · 2 Nov</a><a href="2026-11-09.html">W10 · 9 Nov</a><a href="2026-11-16.html">W11 · 16 Nov</a><a href="2026-11-23.html">W12 · 23 Nov</a><a href="2026-11-30.html">W13 · 30 Nov</a><a href="2026-12-07.html">W14 · 7 Dec</a><a href="2026-12-14.html">W15 · 14 Dec</a><a href="2026-12-21.html" aria-current="page">W16 · 21 Dec</a></div></section>
+<footer>
+<p>Something missing or wrong? Reply in <a href="https://www.reddit.com/r/IEMStream1/comments/1wjm2qr/" target="_blank" rel="noopener">this week's problems thread</a>, or use the anonymous form above.</p>
+<p>Confidence labels: <b>Confirmed in writing</b> = taken from a programme email or Canvas announcement.
+<b>Needs a Canvas recheck</b> = last verified earlier in the year and not re-confirmed since.
+<b>Source contradicts itself</b> = the email we have gives an impossible date, so it must be clarified before you rely on it.</p>
+<p>Personal names from internal correspondence are removed before anything is published here.</p>
+</footer>
+</main></body></html>
